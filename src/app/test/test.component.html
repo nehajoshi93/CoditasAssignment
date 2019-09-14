@@ -1,0 +1,112 @@
+<!-- <style>
+   .toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: black;
+    font-weight: 600;
+  }
+  .search-container button {
+  /* float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px; */
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.search-container {
+  float: right;
+}
+.search-container button:hover {
+  background: #ccc;
+}
+</style>
+<div class="toolbar" role="banner">
+  <div class="col-sm-6">
+      <select>
+          <option value="volvo">Sort by Name</option>
+          <option value="saab">Sort by Rank</option>
+        </select>
+  </div>
+ 
+      <div class="search-container ">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+</div> -->
+<style>
+ .card-header{
+   height: 50px;
+ }
+ .search-container button {
+  /* float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px; */
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.search-container {
+  float: right;
+}
+.search-container button:hover {
+  background: #ccc;
+}
+.user_image{
+  height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.user_info{
+  margin-left: 7%;
+}
+.card1_color{
+  background-color:#0c71ed;
+}
+.inside_card{
+  width: 44%;
+  margin-left: 28%;
+}
+
+</style>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card_color">
+      <div class="card-header card1_color">
+        <div class="col-sm-6 dropdown">
+            <select>
+                <option value="volvo">Sort by Name</option>
+                <option value="saab">Sort by Rank</option>
+              </select>
+        </div>
+        <div class="col-sm-6 search-container">
+            <input type="text" placeholder="Search.." name="search"  [(ngModel)]="name">
+            <button type="submit"><i class="fa fa-search" (click)="onSearch()"></i></button>
+        </div>
+        </div>
+        <div class="total_result" *ngIf="users.items"> Total Result :  {{users.items?.length}} </div>
+        <div class="card-body" *ngFor="let user of users.items">
+          <div class="card inside_card">
+          <div class ="row user_info">
+           <div class="column">
+             <img [src]= "user.avatar_url" class="user_image"></div>
+             <div class="column"><h3>{{user.login}}</h3><div>Profile URL : {{user.url}}</div></div>
+           </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  <!-- <div *ngFor="let user of users.items">
+     {{user.login}}
+     <img [src]="user.avatar_url">
+  </div> -->
+ 
