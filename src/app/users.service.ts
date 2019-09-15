@@ -9,6 +9,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 })
 export class UsersService {
   private userUrl: String = "https://api.github.com/search/users?q=";
+  private user_detail_url = "https://api.github.com/users/";
 
   constructor(private http: HttpClient) {
       
@@ -19,5 +20,8 @@ export class UsersService {
   // }
    getUsers(userName:any): Observable<any>{
      return this.http.get(this.userUrl + userName);
+   }
+   getUserDetail(userName:any): Observable<any>{
+     return this.http.get(this.user_detail_url +userName +"/repos");
    }
 }
